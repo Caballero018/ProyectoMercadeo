@@ -40,7 +40,7 @@ Route::post('/login', [SessionsController::class, 'store'])
 
 // Logout
 Route::get('/logout', [SessionsController::class, 'destroy'])
-    ->middleware(['auth'])
+    ->middleware(['auth', 'disabled'])
     ->name('login.destroy');
 
 // Admin authentication routes
