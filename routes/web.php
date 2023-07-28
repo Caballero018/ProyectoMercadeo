@@ -13,7 +13,7 @@ Auth::routes(['verify' => true]);
 
 Route::get('/', function () {
     return view('home');
-})->middleware(['auth', 'verified']);
+})->middleware(['auth', 'verified', 'disabled']);
 
 // Log paths
 Route::get('/register', [RegisterController::class, 'create'])
@@ -40,17 +40,24 @@ Route::post('/login', [SessionsController::class, 'store'])
 
 // Logout
 Route::get('/logout', [SessionsController::class, 'destroy'])
-    ->middleware('auth')
+    ->middleware(['auth'])
     ->name('login.destroy');
 
 // Admin authentication routes
 Route::get('/admin', [AdminController::class, 'index'])
-    ->middleware('auth.admin')
+    ->middleware(['auth.admin', 'disabled'])
     ->name('admin.index');
 
 Route::get('/users', [AdminController::class, 'usersShow'])
-    ->middleware('auth.admin')
+    ->middleware(['auth.admin', 'disabled'])
     ->name('admin.users');
 Route::get('/users/edit/{user}', [AdminController::class, 'userEdit'])
-    ->middleware('auth.admin')
+    ->middleware(['auth.admin', 'disabled'])
     ->name('admin.users.edit');
+Route::put('/users/edit/{user}', [AdminController::class, 'edit'])
+    ->middleware(['auth.admin', 'disabled'])
+    ->name('admin.users.editation');
+
+Route::get('/disabled', function() {
+    return view('admin.disabled');
+})->name('admin.disabled');
