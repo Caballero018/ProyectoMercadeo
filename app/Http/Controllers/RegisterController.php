@@ -10,10 +10,19 @@ use Illuminate\Support\Facades\Mail;
 
 class RegisterController extends Controller
 {
+    /**
+     * Function that displays the user registry
+    */
     public function create()
     {
         return view('auth.register');
     }
+
+    /**
+     * Function that handles user creation
+     *
+     * @param App\Http\Requests\RegisterRequest $request
+    */
     public function store(RegisterRequest $request)
     {
         $user = User::create($request->all());
