@@ -14,9 +14,10 @@ class RegisterController extends Controller
     {
         return view('auth.register');
     }
-    public function store(RegisterRequest $request) {
+    public function store(RegisterRequest $request)
+    {
         $user = User::create($request->all());
-        
+
         auth()->login($user);
         Mail::to($user->email)->send(new VerificationMail($user));
 

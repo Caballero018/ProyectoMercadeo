@@ -15,7 +15,7 @@ class VerificationController extends Controller
         }
 
         if ($user->markEmailAsVerified()) {
-            $user->save;
+            $user->save();
             event(new \Illuminate\Auth\Events\Verified($user));
         }
 

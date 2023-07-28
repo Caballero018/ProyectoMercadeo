@@ -11,11 +11,12 @@ class SessionsController extends Controller
     {
         return view('auth.login');
     }
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $credentials = $request->only('email', 'password');
 
         $fieldType = filter_var($request->email, FILTER_VALIDATE_EMAIL) ? 'email' : 'username';
-        
+
         if(!auth()->attempt(array(
                 $fieldType => $credentials['email'],
                 'password' => $credentials['password']))) {
@@ -24,12 +25,15 @@ class SessionsController extends Controller
             ]);
         } else {
             if (auth()->user()->role == 'admin') {
+                if ($request->is('/')) {
+                }
                 return redirect()->route('admin.index');
             }
             return redirect()->to('/');
         }
     }
-    public function destroy() {
+    public function destroy()
+    {
         auth()->logout();
         return redirect()->to('/');
     }
