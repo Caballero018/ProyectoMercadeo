@@ -46,7 +46,7 @@ class SessionsController extends Controller
 
     /**
      * Function that is responsible for closing the user session
-     * 
+     *
      */
     public function destroy()
     {
