@@ -27,7 +27,7 @@ class AdminController extends Controller
 
     /**
      * Function that shows view of all users
-     * 
+     *
      * @param App\Models\User $user
      */
     public function userEdit(User $user)
@@ -37,7 +37,7 @@ class AdminController extends Controller
 
     /**
      * Function edited by a specific user
-     * 
+     *
      * @param App\Http\Requests\AdminRequest $request
      * @param App\Models\User $user
      */
