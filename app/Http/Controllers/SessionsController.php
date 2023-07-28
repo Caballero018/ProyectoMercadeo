@@ -7,10 +7,21 @@ use Illuminate\Support\Facades\Auth;
 
 class SessionsController extends Controller
 {
+    /**
+    * Function that displays the user login
+    */
     public function create()
     {
         return view('auth.login');
     }
+
+    /**
+     * Function handles user authentication. If the user's credentials match
+     * those stored in the database, the user is authenticated and redirected
+     * to different locations based on their role (admin or normal user).
+     *
+     * @param Illuminate\Http\Request $request
+    */
     public function store(Request $request)
     {
         $credentials = $request->only('email', 'password');
@@ -32,6 +43,11 @@ class SessionsController extends Controller
             return redirect()->to('/');
         }
     }
+
+    /**
+     * Function that is responsible for closing the user session
+     *
+     */
     public function destroy()
     {
         auth()->logout();

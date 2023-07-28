@@ -6,6 +6,12 @@ use App\Models\User;
 
 class VerificationController extends Controller
 {
+    /**
+     * Function that verifies the email address of a registered user.
+     *
+     * @parama $id
+     * @parama $hash
+     */
     public function verify($id, $hash)
     {
         $user = User::findOrFail($id);

@@ -8,7 +8,8 @@ use Illuminate\Http\Request;
 class AdminAuth
 {
     /**
-     * Handle an incoming request.
+     * Function that identifies if an authenticated user is an administrator or not
+     * and acts accordingly.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next

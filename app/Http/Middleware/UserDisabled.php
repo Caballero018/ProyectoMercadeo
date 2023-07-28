@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class UserDisabled
 {
     /**
-     * Handle an incoming request.
+     * Function that identifies if a user is disabled and acts accordingly.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
