@@ -34,6 +34,7 @@ class AdminController extends Controller
     {
         return view('admin.users.edit', compact('user'));
     }
+
     /**
      * Function edited by a specific user
      * 
